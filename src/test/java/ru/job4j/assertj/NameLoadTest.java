@@ -30,7 +30,7 @@ class NameLoadTest {
         NameLoad nameLoad = new NameLoad();
         assertThatThrownBy(() -> nameLoad.parse("pet:cat"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("this name: %s does not contain the symbol '='".formatted("pet:cat"));
+                .hasMessageContaining("this name: %s does not contain the symbol '='",("pet:cat"));
     }
 
     @Test
@@ -38,7 +38,7 @@ class NameLoadTest {
         NameLoad nameLoad = new NameLoad();
         assertThatThrownBy(() -> nameLoad.parse("=cat"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("this name: %s does not contain a key".formatted("=cat"));
+                .hasMessageContaining("this name: %s does not contain a key","=cat");
     }
 
     @Test
@@ -46,6 +46,6 @@ class NameLoadTest {
         NameLoad nameLoad = new NameLoad();
         assertThatThrownBy(() -> nameLoad.parse("pet="))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("this name: %s does not contain a value".formatted("pet="));
+                .hasMessageContaining("this name: %s does not contain a value","pet=");
     }
 }
