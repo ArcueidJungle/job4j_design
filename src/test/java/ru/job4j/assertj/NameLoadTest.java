@@ -46,6 +46,6 @@ class NameLoadTest {
         NameLoad nameLoad = new NameLoad();
         assertThatThrownBy(() -> nameLoad.parse("pet="))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining( "this name: %s does not contain a value".formatted("pet="));
+                .hasMessageContaining("this name: %s does not contain a value".formatted("pet="));
     }
 }
