@@ -10,9 +10,7 @@ public class BackwardArrayIt implements Iterator<Integer> {
     private int point;
 
     public BackwardArrayIt(int[] data) {
-        this.data = IntStream.range(0, data.length)
-                .map(i -> data[data.length - i - 1])
-                .toArray();
+        this.data = data;
     }
 
     @Override
@@ -25,6 +23,6 @@ public class BackwardArrayIt implements Iterator<Integer> {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        return data[point++];
+        return data[data.length - 1 - point++];
     }
 }
