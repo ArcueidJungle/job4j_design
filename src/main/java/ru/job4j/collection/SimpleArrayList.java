@@ -31,7 +31,7 @@ public class SimpleArrayList<T> implements SimpleList<T> {
     @Override
     public T remove(int index) {
         T outputValue = get(index);
-        System.arraycopy(container, index +1, container, index, container.length - 1 - index);
+        System.arraycopy(container, index + 1, container, index, container.length - 1 - index);
         size--;
         modCount++;
         return outputValue;
