@@ -31,7 +31,7 @@ public class SimpleLinkedList<E> implements LinkedList<E> {
     public E get(int index) {
         Objects.checkIndex(index, size);
         Node<E> currentNode = head;
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i < index; i++) {
             currentNode = currentNode.next;
         }
         return currentNode.item;
