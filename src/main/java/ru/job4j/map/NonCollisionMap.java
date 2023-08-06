@@ -16,7 +16,7 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
         if (count >= capacity * LOAD_FACTOR) {
             expand();
         }
-        int bucket = indexFor(hash(Objects.hashCode(key)));
+        int bucket = getIndex(key);
         boolean rls = table[bucket] == null;
         if (rls) {
             MapEntry<K, V> newTable = new MapEntry<>(key, value);
@@ -32,14 +32,17 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
     private int indexFor(int hash) {
         return hash % capacity;
     }
+
+    private int getIndex(K hc) {
+        return indexFor(hash(Objects.hashCode(hc)));
+    }
     private void expand() {
         capacity *= 2;
         MapEntry<K, V>[] newTable = new MapEntry[capacity];
         for (MapEntry<K, V> keySet : table) {
             if (keySet != null) {
                 K currentKey = keySet.key;
-                int currentHash = hash(Objects.hashCode(currentKey));
-                int index = indexFor(currentHash);
+                int index = getIndex(currentKey);
                 newTable[index] = keySet;
             }
         }
@@ -47,8 +50,9 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
     }
     @Override
     public V get(K key) {
-        int index = indexFor(hash(Objects.hashCode(key)));
+        int index = getIndex(key);
         return (table[index] != null
+                && (hash(Objects.hashCode(table[index].key)) == hash(Objects.hashCode(key)))
                 && Objects.equals(table[index].key, key)) ? table[index].value : null;
     }
 
@@ -57,9 +61,11 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
         boolean rsl = false;
         int index = 0;
         if (key != null) {
-            index = indexFor(hash(key.hashCode()));
+            index = getIndex(key);
         }
-        if (table[index] != null && Objects.equals(table[index].key, key)) {
+        if (table[index] != null
+                && (hash(Objects.hashCode(table[index].key)) == hash(Objects.hashCode(key)))
+                && Objects.equals(table[index].key, key)) {
             table[index] = null;
             count--;
             modCount++;
