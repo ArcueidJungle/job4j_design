@@ -10,7 +10,7 @@ public class ByteArrayStream {
         byte[] bytes = new byte[] {'J', 'a', 'v', 'a'};
         ByteArrayInputStream stream = new ByteArrayInputStream(bytes);
         int data;
-        while ((data = stream.read()) !=-1) {
+        while ((data = stream.read()) != -1) {
             System.out.print((char) data);
         }
         System.out.println();
