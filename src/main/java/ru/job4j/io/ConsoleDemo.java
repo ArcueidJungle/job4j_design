@@ -12,7 +12,7 @@ public class ConsoleDemo {
             System.out.println("Консоль недоступна");
             return;
         }
-        login = console.readLine("%s","Введите логин:");
+        login = console.readLine("%s", "Введите логин:");
         System.out.printf("Ваш логин: %s\n", login);
         charPassword = console.readPassword("%s", "Введите пароль");
         System.out.println("Ваш пароль: " + String.valueOf(charPassword));
