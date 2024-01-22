@@ -12,8 +12,8 @@ public class WorkExperience {
     @Override
     public String toString() {
         return "workExperience{"
-                +"totalExperience=" + totalExperience
-                +", currentPlaceExperience=" + currentPlaceExperience
-                +'}';
+                + "totalExperience=" + totalExperience
+                + ", currentPlaceExperience=" + currentPlaceExperience
+                + '}';
     }
 }

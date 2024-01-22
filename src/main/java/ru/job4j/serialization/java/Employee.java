@@ -18,10 +18,10 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{"
-                +"isMarried=" + isMarried
-                +", age=" + age
-                +", workExperience=" + workExperience
-                +", Fullname=" + Arrays.toString(fullname)
-                +'}';
+                + "isMarried=" + isMarried
+                + ", age=" + age
+                + ", workExperience=" + workExperience
+                + ", Fullname=" + Arrays.toString(fullname)
+                + '}';
     }
 }

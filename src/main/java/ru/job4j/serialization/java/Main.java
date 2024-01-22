@@ -11,8 +11,8 @@ public class Main {
         final Gson gson = new GsonBuilder().create();
         System.out.println(gson.toJson(employee));
         final String employeeJson =
-                "{" +
-                        "\"isMarried\":true,"
+                "{"
+                        + "\"isMarried\":true,"
                 + "\"age\":26,"
                 + "\"workExperience\":"
                 + "{"
