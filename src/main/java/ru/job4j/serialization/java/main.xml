@@ -1,0 +1,11 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<employee isMarried="false" age="25">
+    <workexperiences>
+        <totalexperience>6</totalexperience>
+        <currentplaceexperience>2</currentplaceexperience>
+    </workexperiences>
+    <String>
+        <name>Ivan</name>
+        <surname>Lavrentev</surname>
+    </String>
+</employee>
